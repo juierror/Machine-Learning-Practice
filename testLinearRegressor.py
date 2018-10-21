@@ -12,11 +12,15 @@ _x = x.reshape(-1, 1)
 y = np.array([2, 3, 2, 8, 6, 7, -3, -4, -7])
 _y = y.reshape(-1, 1)
 
+iter = 100
 model = LinearRegressor(_x, _y, 0.01)
-model.train(30)
+loss = model.train(iter)
 pred = model.predict(np.array(range(-10, 10)).reshape(-1, 1))
 
 plt.scatter(x, y)
 plt.plot(np.array(range(-10, 10)), pred.flatten())
+plt.show()
+
+plt.plot(range(1,iter+1),loss)
 plt.show()
 

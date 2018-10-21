@@ -37,8 +37,11 @@ class LinearRegressor:
         return tmp
 
     def train(self, iter):
+        loss = []
         for i in range(iter):
             self.update()
+            loss.append(self.loss_func())
+        return loss
 
     def predict(self, x_test):
         # x_test shape (line,features)
